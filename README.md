@@ -1,58 +1,126 @@
-## Sales Insights Data Analysis Project
+# 📊 Sales Insights: Data Analysis & Visualization Project
 
-### Instructions to setup mysql on your local computer
+## 🔍 Project Overview
 
-1. Follow step in this video to install mysql on your local computer
-https://www.youtube.com/watch?v=WuBcTJnIuzo
+This project focuses on analyzing sales data for AtliQ Hardware, a company providing computer hardware and peripherals. The goal was to transform raw data into actionable insights to help the sales director monitor revenue trends, identify declining markets, and make data-driven decisions. 
 
-1. SQL database dump is in db_dump.sql file above. Download `db_dump.sql` file to your local computer and import it as per instructions given in the tutorial video
+The dashboard provides a comprehensive view of sales performance across different cities, customers, and products from 2017 to 2020.
 
-### Data Analysis Using SQL
+---
+## 📸 Dashboard Preview
 
-1. Show all customer records
+(Add your dashboard screenshot here)
 
-    `SELECT * FROM customers;`
+---
 
-1. Show total number of customers
+## 🎯 Problem Statement
 
-    `SELECT count(*) FROM customers;`
+The sales director was facing challenges in tracking business performance across different regions in India. The reports provided by regional managers were often complex and didn't clearly show the:
 
-1. Show transactions for Chennai market (market code for chennai is Mark001
+* Revenue trends over time
+* Top-performing markets and customers
+* Product performance
+* Sales quantity distribution
 
-    `SELECT * FROM transactions where market_code='Mark001';`
+There was no centralized dashboard for quick decision-making.
 
-1. Show distrinct product codes that were sold in chennai
+---
 
-    `SELECT distinct product_code FROM transactions where market_code='Mark001';`
+## 🛠️ Tools & Technologies Used
 
-1. Show transactions where currency is US dollars
+* SQL (MySQL): For data extraction, cleaning, and initial exploratory data analysis (EDA).
+* Power BI Desktop: For data modeling, ETL (Power Query), and creating the interactive dashboard.
+* DAX (Data Analysis Expressions): To create calculated measures like Total Revenue and Sales Quantity.
 
-    `SELECT * from transactions where currency="USD"`
+---
 
-1. Show transactions in 2020 join by date table
+## 📂 Dataset Description
 
-    `SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;`
+The dataset consists of multiple tables:
 
-1. Show total revenue in year 2020,
+* **customers**: Contains customer details (name, type)
+* **transactions**: Contains sales transactions
+* **date**: Date dimension table for time-based analysis
+* **products**: Product-related information
+* **markets**: Market/city information
 
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";`
-	
-1. Show total revenue in year 2020, January Month,
+---
 
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");`
+## ⚙️ Data Preparation Steps
 
-1. Show total revenue in year 2020 in Chennai
+1. **Data Discovery**: Performed initial data analysis in MySQL to understand the database schema and table relationships.
 
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020
-and transactions.market_code="Mark001";`
+2. **Data Cleaning**: Imported data into Power BI and used Power Query to:
+   * Remove null values and "garbage" data.
+   * Normalize currency (Converted USD transactions to INR for uniform reporting).
+   * Filter out irrelevant records (e.g., zero sales amount).
 
+3. **Data Modeling**: Established a Star Schema by connecting the transactions fact table with dimension tables like customers, products, markets, and date.
 
-Data Analysis Using Power BI
-============================
+4. **Dashboard Creation**: Developed an interactive visual interface to track KPIs.
 
-1. Formula to create norm_amount column
+---
 
-`= Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)`
+## 📊 Key Dashboard Features
 
+* Total Revenue: **984.81M**
+* Total Sales Quantity: **2M**
+* Revenue trend over time
+* Revenue by market (city-wise analysis)
+* Sales quantity by market
+* Top 5 customers
+* Top 5 products
+* Year and month filters (interactive slicers)
 
+---
+
+## 📈 Key Insights
+
+* Delhi NCR generates the highest revenue (~519M)
+* Sales show fluctuations with a declining trend in later years
+* A few customers contribute a major portion of revenue
+* Certain products dominate overall sales
+* Some cities have very low contribution and can be targeted for growth
+
+---
+
+## 💼 Business Impact
+
+* Revenue Optimization: The company can now see which specific markets (like Delhi, Mumbai, etc.) are contributing the most and which ones need more marketing focus.
+* Real-time Tracking: Replaces manual, static Excel reports with a dynamic dashboard that updates automatically with new data.
+* Cost Reduction: By identifying low-performing products and regions, the company can save costs on ineffective sales strategies.
+* Data-Driven Decisions: Provides a single source of truth for the Sales Director to make strategic moves based on facts rather than gut feeling.
+
+---
+
+## 🚀 What I Learned
+
+* Writing complex SQL queries for data analysis
+* Data cleaning and transformation using Power Query
+* Building interactive dashboards in Power BI
+* Data modeling and relationships
+* Business problem solving using data
+
+---
+
+## ⚡ How to Run This Project
+
+1. Import `db_dump.sql` into MySQL
+2. Open Power BI file (.pbix)
+3. Connect to database
+4. Refresh data
+5. Explore dashboard
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates how raw data can be transformed into meaningful insights using SQL and Power BI. It highlights the importance of data visualization in business decision-making.
+
+---
+
+## 🔗 Author
+
+Prem Kumar Tiwary
+Aspiring Data Analyst
 
