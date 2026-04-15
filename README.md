@@ -9,7 +9,7 @@ The dashboard provides a comprehensive view of sales performance across differen
 ---
 ## 📸 Dashboard Preview
 
-(Add your dashboard screenshot here)
+(sales insight dashboard.pbix)
 
 ---
 
@@ -119,8 +119,13 @@ This project demonstrates how raw data can be transformed into meaningful insigh
 
 ---
 
-## 🔗 Author
+## 🔗 Author 
+**Name:** Prem Tiwary  
+**Email:** premtiwary7050@gmail.com 
+**LinkedIn:** www.linkedin.com/in/prem-tiwary
 
-Prem Kumar Tiwary
-Aspiring Data Analyst
+---
+
+## License
+This repository is for demonstration and learning purposes. Feel free to reuse the code with attribution.
 
