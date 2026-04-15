@@ -9,7 +9,7 @@ The dashboard provides a comprehensive view of sales performance across differen
 ---
 ## 📸 Dashboard Preview
 
-![Project Thumbnail]()
+![Project Thumbnail](dashboard.png)
 
 
 ---
