@@ -9,7 +9,8 @@ The dashboard provides a comprehensive view of sales performance across differen
 ---
 ## 📸 Dashboard Preview
 
-(sales insight dashboard.pbix)
+![Project Thumbnail]()
+
 
 ---
 
